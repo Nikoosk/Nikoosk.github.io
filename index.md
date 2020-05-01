@@ -2,7 +2,8 @@
 
 ## 1. Johdanto
 
-Tämän dokumentin tarkoitus on kuvata ja havainnollistaa kevään aikana oppimaani sekä tuottamaani sisältöä peliprojektiimme. Projekti kulkee nimellä [Nihonshoki Teien](http://nihonshokiteien.ticorporate.fi/). Projektissa kannoin vastuun koodista, sekä kaikesta mikä tapahtuu Unityn päässä. Tässä dokumentissa keskityn erityisen tarkasti toteutuksiin, jotka ovat olleet minulle täysin uusia, tai olen niistä erityisen tyytyväinen. DemoLabin aikana pääsin haistelemaan hieman UI-suunnittelua, mutta pääsääntöisesti olen tuottanut koodia, vastannut Unityn päässä työskentelystä, sekä opetellut käyttämään [YarnSpinner](https://yarnspinner.dev/) -työkalua osana tarinankerrontaa sekä pelilogiikkaa.
+Tämän dokumentin tarkoitus on kuvata ja havainnollistaa kevään aikana oppimaani sekä tuottamaani sisältöä peliprojektiimme. Projekti kulkee nimellä [Nihonshoki Teien](http://nihonshokiteien.ticorporate.fi/). Projektissa kannoin vastuun koodista, sekä kaikesta mikä tapahtuu Unityn päässä. Tässä dokumentissa keskityn erityisen tarkasti toteutuksiin, jotka ovat olleet minulle täysin uusia, tai olen niistä erityisen tyytyväinen. DemoLabin aikana pääsin haistelemaan hieman UI-suunnittelua, mutta pääsääntöisesti olen tuottanut koodia, vastannut Unityn päässä työskentelystä, sekä opetellut käyttämään [YarnSpinner](https://yarnspinner.dev/) -työkalua osana tarinankerrontaa sekä pelilogiikkaa.  
+
 Kurssin alussa osaamiseni koskien Unityä sekä koodaamista olivat todella rajalliset. Unityn kanssa aikasemmat kokemukset olivat lähinnä netistä löytyvien ohjeiden seuraamista sekä valmiiden palasten käyttämistä. Projektin alussa totesin että dialogin näyttäminen pelissä onkin suurempi haaste, mitä osasin aavistaa. Edellä mainittu YarnSpinner on ollut korvaamaton apu Unity-integraatiollaan sekä helppokäyttöisellä web-editorillaan ![Image](https://github.com/Nikoosk/Nikoosk.github.io/blob/master/yarnEditor.png)
 
 ### Markdown
