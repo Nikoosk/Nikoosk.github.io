@@ -25,7 +25,7 @@ Kaikki Unityn päässä tehty työ on omaa, mutta pyrin poimimaan tärkeimmät k
 
 - Tallentaminen 
 - Dialogi 
-- Kameraefektit  
+- Yarn komennot
 
 ### 4.1 Tallentaminen
 Tallentaminen oli alunperin tarkoitus tehdä kerralla oikeaoppisesti käyttäen BinaryFormatteria ja Filestreamia. Mutta kahden viikon tuskailun jälkeen tuloksena syntyi vain tyhjä tiedosto sekä kasoittain virheilmoituksia. Lopulta päätin luovuttaa ja tehdä "huonolla tavalla" käyttäen Player.Prefs.  
@@ -71,6 +71,7 @@ Pelin asetukset sekä pelaajan nimi tallennetaan vastaavalla tavalla Player.Pref
 ### 4.2 Dialogi
 Narratiivi-tiimiltä tullut valmis dialogi ei sellaisenaan käy suoraan Yarniin, vaan siihen pitää lisätä komennot, tehosteet sekä kohtauksesta riippuen erilaiset muuttujat ja siirtymät Nodejen välillä. Kaikkiaan itseluomiani dialogin sisällä käytettäviä komentoja on yhteensä 12 kappaletta, ja ne vastaavat mm. puhujan nimen vaihtamisen nimilaatikkoon, hahmojen ilmeiden vaihtamisen, taustan vaihtamisen, kameran zoomauksen jne.  
 
+### 4.3 Yarn custom komennot
 Yarnin sisäiset komennot toimivat seuraavalla tavalla: ```<<komento Objekti arvo>>```, jossa ```komento``` on skriptissä määritetty seuraavanlaisesti: 
 ```csharp
 [YarnCommand("Komento")]
