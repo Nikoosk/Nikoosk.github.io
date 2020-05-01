@@ -72,6 +72,7 @@ Pelin asetukset sekä pelaajan nimi tallennetaan vastaavalla tavalla Player.Pref
 Narratiivi-tiimiltä tullut valmis dialogi ei sellaisenaan käy suoraan Yarniin, vaan siihen pitää lisätä komennot, tehosteet sekä kohtauksesta riippuen erilaiset muuttujat ja siirtymät Nodejen välillä. Kaikkiaan itseluomiani dialogin sisällä käytettäviä komentoja on yhteensä 12 kappaletta, ja ne vastaavat mm. puhujan nimen vaihtamisen nimilaatikkoon, hahmojen ilmeiden vaihtamisen, taustan vaihtamisen, kameran zoomauksen jne.  
 
 Kaikki efektit ja siirtymät dialogin aikana on toteutettu YarnCommandeilla, joita ketjuttamalla saadaan aikaan erilaisia efektejä, kuten esimerkiksi taustan vaihto.[![Image from Gyazo](https://i.gyazo.com/d3be3540e7b79efa2366ff141509a104.gif)](https://gyazo.com/d3be3540e7b79efa2366ff141509a104)
+<a href="https://gyazo.com/d3be3540e7b79efa2366ff141509a104"><video alt="Video from Gyazo" width="770" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/d3be3540e7b79efa2366ff141509a104.mp4" type="video/mp4" /></video></a>
 
 ### 4.3 Yarn custom komennot
 Yarnin sisäiset komennot toimivat seuraavalla tavalla: ```<<komento Objekti arvo>>```, jossa ```komento``` on skriptissä määritetty seuraavanlaisesti: 
