@@ -210,8 +210,42 @@ SpinReward();
 ```  
 ### 4.5 Taistelu
 <video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/dd525096fa0f855bc00ecf353ed40208.mp4" type="video/mp4" /></video>  
-Taistelussa pelaaja voi valita joko lyönnin tai suojaamisen. 
+Taistelun alussa peli katsoo pelaajahahmon sekä vihollisen nopeusarvot, ja päättää niiden perusteella kumpi liikkuu ensin. Taistelulogiikka on todella yksinkertainen "lyö toista kunnes se kuolee" -tyylinen.  
+```csharp
+// Combat coroutine
+        IEnumerator HitS()
+        {
+            CR_Running = true;
+            CharacterStats mcStats = player.gameObject.GetComponent<CharacterStats>();
+            Enemy enemy = enemyHolder.GetComponentInChildren<Enemy>();
+           
+            // Compares speeds and decides who goes first in combat
+            if (enemy.Speed < mcStats.Speed)
+            {
+                LeanTween.moveX(Hyvis.GetComponent<RectTransform>(),700f, 1f).setEasePunch();
+                enemy.Hit(mcStats.AtkPhys);
+                yield return new WaitForSecondsRealtime(1);
+                mcStats.Hit(enemy.AtkPhys);
+                LeanTween.moveX(enemyHolder.transform.GetChild(0).GetComponent<RectTransform>(), 0f, 1f).setEasePunch();
+                yield return new WaitForSecondsRealtime(1);
+                CR_Running = false;
+            }
+            else
+            {
+                LeanTween.moveX(enemyHolder.transform.GetChild(0).GetComponent<RectTransform>(), 0f, 1f).setEasePunch();
+                mcStats.Hit(enemy.AtkPhys);
+                yield return new WaitForSecondsRealtime(1);
+                LeanTween.moveX(Hyvis.GetComponent<RectTransform>(), 700f, 1f).setEasePunch();
+                enemy.Hit(mcStats.AtkPhys);
+                yield return new WaitForSecondsRealtime(1);
+                CR_Running = false;
+            }
+        }
+```
+Taistelun aikaset lyöntianimaatiot on tehty LeanTweenillä, ja vihollisen idle-animaatio on tehty [DragonBones](https://docs.egret.com/dragonbones)illa.  
 
+Pelaaja voi myös avata inventaarionsa, ja valita käytettäviä esineitä taistelun ajaksi. Esineet antavat bonusta hahmon statseihin, kuten nopeuteen, elämäpisteisiin, puolustukseen sekä hyökkäykseen.  
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/bd399f11b60a2d9ea6198354d2d71f36.mp4" type="video/mp4" /></video>
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
