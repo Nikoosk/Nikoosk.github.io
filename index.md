@@ -26,7 +26,9 @@ Kaikki Unityn päässä tehty työ on omaa, mutta pyrin poimimaan tärkeimmät k
 - Tallentaminen 
 - Dialogi 
 - Yarn komennot 
-- Onnenpyörä  
+- Onnenpyörä 
+- Taistelumekaanikka  
+
 
 
 ### 4.1 Tallentaminen
@@ -180,6 +182,35 @@ public void CameraEffect(string effect)
 ```
 ### 4.4 Onnenpyörä
 <video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/1228e6e9bbc1d40457d16866bd1634e0.mp4" type="video/mp4" /></video>  
+
+Onnenpyörä on toteutettu käyttäen ```LeanTween.rotate(...)``` -metodia, jossa pyörän pyörimä astemäärä on satunnainen luku väliltä 1440 - 4320. Pyörä pyörii siis vähintään 4 kierrosta ja maksimissaan 12.  
+
+Kuten videossa näkyy, pelaaja saa 8h välein vapaan pyöräytyksen sekä päivittäin uusiutuvat kaksi pyöräytystä.  
+
+Onnenpyörän palkinnot on jaettu 62:een osaan, joiden todennäköisyydet ovat:  
+- Common, 30/62 
+- Uncommon, 18/62 
+- Rare, 10/62 
+- Legendary, 4/62  
+
+Pyörän pyöräytyksestä vastaa seuraava koodipätkä  
+```csharp 
+...
+// Generates random value for degrees of turn
+float random = Random.Range(1439, 4321);
+Debug.Log(System.DateTime.Now);
+Debug.Log(random);
+RewardRoll = random;
+// Rotate the wheel
+LeanTween.rotate(Wheel.GetComponent<RectTransform>(), random, 5f).setEaseOutExpo();
+GetComponent<Timer>().SaveSpinTime();
+TextLeft.text = "Next spin at: " + VariableLoader.spinTime;
+SpinReward();
+...
+```  
+### 4.5 Taistelu
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/dd525096fa0f855bc00ecf353ed40208.mp4" type="video/mp4" /></video>  
+Taistelussa pelaaja voi valita joko lyönnin tai suojaamisen. 
 
 ### Markdown
 
