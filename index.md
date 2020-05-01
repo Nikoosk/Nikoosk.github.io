@@ -81,7 +81,9 @@ Taustan vaihtoon on ketjutettu yhteensä 5 komentoa:
 <<effect Player full_unfade>>
 <<wait 1>>
 ```
-```<<effect Player full_fade>>``` laittaa koko ruudun peittävän mustan kuvan alpha-arvon yhteen, tehden ruudusta mustan, ```<<wait 2>>``` pysäyttää Yarnin / dialogin kahdeksi sekunniksi, jonka jälkeen ```<<bgchange Player bg2>>``` vaihtaa taustakuvan, ```<<effect Player full_unfade>>``` laittaa ruudun peittävän kuvan taas läpinäkyväksi ja lopulta ```<<wait 1>>``` odottaa yhden sekunnin ennenkuin dialogi jatkuu. Tuloksena on sulava taustanvaihto ilman, että pelaajalta jää yhtään dialogia näkemättä.
+```<<effect Player full_fade>>``` laittaa koko ruudun peittävän mustan kuvan alpha-arvon yhteen, tehden ruudusta mustan, ```<<wait 2>>``` pysäyttää Yarnin / dialogin kahdeksi sekunniksi, jonka jälkeen ```<<bgchange Player bg2>>``` vaihtaa taustakuvan, ```<<effect Player full_unfade>>``` laittaa ruudun peittävän kuvan taas läpinäkyväksi ja lopulta ```<<wait 1>>``` odottaa yhden sekunnin ennenkuin dialogi jatkuu. Tuloksena on sulava taustanvaihto ilman, että pelaajalta jää yhtään dialogia näkemättä.  
+
+"Kameran" liikutus ja zoomaus on toteutettu hieman erikoisella tavalla. Itse kamera ei oikeasti tee mitään, vaan kuvaa liikutellaan ja venytetään tarpeen mukaan. <video alt="Video from Gyazo" width="428" muted playsinline controls><source src="https://i.gyazo.com/fdcdf0894a9298b1ba73e94dfcfaaed0.mp4" type="video/mp4" /></video>
 
 ### 4.3 Yarn custom komennot
 Yarnin sisäiset komennot toimivat seuraavalla tavalla: ```<<komento Objekti arvo>>```, jossa ```komento``` on skriptissä määritetty seuraavanlaisesti: 
