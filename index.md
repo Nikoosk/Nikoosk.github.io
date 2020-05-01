@@ -245,7 +245,9 @@ Taistelun alussa peli katsoo pelaajahahmon sekä vihollisen nopeusarvot, ja pä�
 Taistelun aikaset lyöntianimaatiot on tehty LeanTweenillä, ja vihollisen idle-animaatio on tehty [DragonBones](https://docs.egret.com/dragonbones)illa.  
 
 Pelaaja voi myös avata inventaarionsa, ja valita käytettäviä esineitä taistelun ajaksi. Esineet antavat bonusta hahmon statseihin, kuten nopeuteen, elämäpisteisiin, puolustukseen sekä hyökkäykseen.  
-<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/bd399f11b60a2d9ea6198354d2d71f36.mp4" type="video/mp4" /></video>
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/bd399f11b60a2d9ea6198354d2d71f36.mp4" type="video/mp4" /></video>  
+
+Valitettavasti pelin scopen kaventuessa, sekä ajan loppuessa taistelu, sekä inventaario jäivät viimeistelemättä. Inventaario on toteutettu listana, ja esineet on Scriptable Objecteja, joita siirretään passiivisesta listasta (inventaario) aktiiviseen (valitut esineet). Inventaario on toteutettu seuraamalla [MVCode](https://www.mvcode.com/lessons/unity-rpg-inventory-system-jamie)n tutoriaalia, ja muokkaamalla siitä omaan käyttöön sopiva. Tutoriaali ei suoraan antanut haluamaani ratkaisua, vaan jouduin muokkaamaan siitä tarvitsemani. Aktiivisten esineiden lista on pohjimmiltaan sama kuin itse inventaario, mutta logiikka esineiden siirtämiseksi listalta toiseen on itse tehty. Esineitä ei myöskään voi olla kuin 3 valittuna kerrallaan. 
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
