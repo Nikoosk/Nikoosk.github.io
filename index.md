@@ -248,6 +248,45 @@ Pelaaja voi myös avata inventaarionsa, ja valita käytettäviä esineitä taist
 <video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/bd399f11b60a2d9ea6198354d2d71f36.mp4" type="video/mp4" /></video>  
 
 Valitettavasti pelin scopen kaventuessa, sekä ajan loppuessa taistelu, sekä inventaario jäivät viimeistelemättä. Inventaario on toteutettu listana, ja esineet on Scriptable Objecteja, joita siirretään passiivisesta listasta (inventaario) aktiiviseen (valitut esineet). Inventaario on toteutettu seuraamalla [MVCode](https://www.mvcode.com/lessons/unity-rpg-inventory-system-jamie)n tutoriaalia, ja muokkaamalla siitä omaan käyttöön sopiva. Tutoriaali ei suoraan antanut haluamaani ratkaisua, vaan jouduin muokkaamaan siitä tarvitsemani. Aktiivisten esineiden lista on pohjimmiltaan sama kuin itse inventaario, mutta logiikka esineiden siirtämiseksi listalta toiseen on itse tehty. Esineitä ei myöskään voi olla kuin 3 valittuna kerrallaan. 
+
+## 5. Muut hienot ominaisuudet
+
+__Kosketuksen visuaalinen havainnollistaminen__  
+
+![Image from Gyazo](https://gyazo.com/16f8bc0c3c78b28c9354669dfb12b353)  
+Tämä pieni läpinäkyvä pallo on aktiivinen ainoastaan kun peli tunnistaa puhelimen näytöltä kosketuksen, ja se seuraa kosketusta näytöllä. TouchIndicator.cs -skriptin ```Update()```-loopissa on metodi, joka tarkistaa, että tunnistaako puhelin kosketusta. Jos kosketus tunnistetaan, se laittaa indikaattoripallon aktiiviseksi ja siirtää sen sijainnin kosketuksen koordinaatteihin. Vastaavalla tavalla kosketuksen loppuessa indikaattoripallo deaktivoituu.  
+```csharp
+// Check for touch
+if (Input.touchCount > 0)
+{
+   Touch touch = Input.GetTouch(0);
+   Vector2 TouchPos = Input.GetTouch(0).position;
+   // Move touch indicator to coordinates of touch position
+   if (touch.phase == TouchPhase.Moved)
+   {
+      position.y = TouchPos.y;
+      position.x = TouchPos.x - 0.7f;
+      touchIndicator.transform.position = position;
+   }
+   
+   // Set touch indicator active when detecting touch input
+   if (touch.phase == TouchPhase.Began)
+   {
+      touchIndicator.SetActive(true);
+      position.y = TouchPos.y;
+      position.x = TouchPos.x;
+      touchIndicator.transform.position = position;
+   }
+   // Deactive touch indicator when touch has ended
+   if (touch.phase == TouchPhase.Ended)
+   {
+      touchIndicator.SetActive(false);
+   }
+
+}
+```
+
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
