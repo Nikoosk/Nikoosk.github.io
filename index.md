@@ -71,8 +71,17 @@ Pelin asetukset sekä pelaajan nimi tallennetaan vastaavalla tavalla Player.Pref
 ### 4.2 Dialogi
 Narratiivi-tiimiltä tullut valmis dialogi ei sellaisenaan käy suoraan Yarniin, vaan siihen pitää lisätä komennot, tehosteet sekä kohtauksesta riippuen erilaiset muuttujat ja siirtymät Nodejen välillä. Kaikkiaan itseluomiani dialogin sisällä käytettäviä komentoja on yhteensä 12 kappaletta, ja ne vastaavat mm. puhujan nimen vaihtamisen nimilaatikkoon, hahmojen ilmeiden vaihtamisen, taustan vaihtamisen, kameran zoomauksen jne.  
 
-Kaikki efektit ja siirtymät dialogin aikana on toteutettu YarnCommandeilla, joita ketjuttamalla saadaan aikaan erilaisia efektejä, kuten esimerkiksi taustan vaihto.[![Image from Gyazo](https://i.gyazo.com/d3be3540e7b79efa2366ff141509a104.gif)](https://gyazo.com/d3be3540e7b79efa2366ff141509a104)
+Kaikki efektit ja siirtymät dialogin aikana on toteutettu YarnCommandeilla, joita ketjuttamalla saadaan aikaan erilaisia efektejä, kuten esimerkiksi taustan vaihto.
 <video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/d3be3540e7b79efa2366ff141509a104.mp4" type="video/mp4" /></video>
+Taustan vaihtoon on ketjutettu yhteensä 5 komentoa:  
+```
+<<effect Player full_fade>>
+<<wait 2>>
+<<bgchange Player bg2>>
+<<effect Player full_unfade>>
+<<wait 1>>
+```
+```<<effect Player full_fade>>``` laittaa koko ruudun peittävän mustan kuvan alpha-arvon yhteen, tehden ruudusta mustan, ```<<wait 2>>``` pysäyttää Yarnin / dialogin kahdeksi sekunniksi, jonka jälkeen ```<<bgchange Player bg2>>``` vaihtaa taustakuvan, ```<<effect Player full_unfade>>``` laittaa ruudun peittävän kuvan taas läpinäkyväksi ja lopulta ```<<wait 1>>``` odottaa yhden sekunnin ennenkuin dialogi jatkuu. Tuloksena on sulava taustanvaihto ilman, että pelaajalta jää yhtään dialogia näkemättä.
 
 ### 4.3 Yarn custom komennot
 Yarnin sisäiset komennot toimivat seuraavalla tavalla: ```<<komento Objekti arvo>>```, jossa ```komento``` on skriptissä määritetty seuraavanlaisesti: 
