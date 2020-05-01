@@ -32,22 +32,22 @@ Tallentaminen oli alunperin tarkoitus tehdä kerralla oikeaoppisesti käyttäen 
 
 Etenemisen tallentaminen tapahtuu Yarn-dialogin sisällä olevaa itsetehtyä komentoa "Save" ```<<Save Player #sceneID>>```, jossa ```Save``` on komennon nimi, ```Player``` viittaa GameObjectiin, jossa YarnCommands.cs -skripti on kiinni, ja viimeisenä osana ```#sceneID``` on numero, joka on määritetty vastaamaan tiettyä Nodea YarnDialogissa. Komento kutsuu YarnCommands.cs -skriptissä olevaa metodia ```SaveProgress(string _value)```, joka yksinkertaisuudessaan on seuraavanlainen:
 ```csharp
-        [YarnCommand("Save")]
-        public void SaveProgress(string _value)
-        {
-            PlayerPrefs.SetInt("DCP", int.Parse(_value));
-        }
+[YarnCommand("Save")]
+public void SaveProgress(string _value)
+   {
+      PlayerPrefs.SetInt("DCP", int.Parse(_value));
+   }
 ```
 Etenemisen automaattinen lataus on monimutkaisempi toteutus, jossa SaveLoad.cs -skriptin ```Awake()``` -metodissa haetaan pelin käynnistyessä Player.Prefseistä "DCP"-avain (DCP = **D**ialogue**C**om**P**leted) ja sen arvoa verrataan ennaltamäärittettyihin dialogi Nodeihin:
 ```csharp
-        void Awake()
-        {
-            if (PlayerPrefs.HasKey("DCP"))
-            {
-                Debug.Log("Found saved dialogue with id: " + PlayerPrefs.GetInt("DCP"));
-                SavedID = PlayerPrefs.GetInt("DCP");
+void Awake()
+   {
+      if (PlayerPrefs.HasKey("DCP"))
+         {
+            Debug.Log("Found saved dialogue with id: " + PlayerPrefs.GetInt("DCP"));
+            SavedID = PlayerPrefs.GetInt("DCP");
 
-                switch (SavedID)
+            switch (SavedID)
                 {
                     case 1:
                         VariableLoader.StartNode = "Start";
@@ -66,7 +66,99 @@ Etenemisen automaattinen lataus on monimutkaisempi toteutus, jossa SaveLoad.cs -
             }
         }
 ```
-Pelin asetukset sekä pelaajan nimi tallennetaan vastaavalla tavalla Player.Prefs -avaimiin ```textSpeed``` (tallentaa dialogin tekstin vieritysnopeuden), ```ASDelay``` (tallentaa dialogin automaattisen siirtymisen seuraavaan riviin viiveen sekunteina) sekä ```name``` (tallentaa pelin alussa pelaajan asettaman nimen kirjoituskentästä). 
+Pelin asetukset sekä pelaajan nimi tallennetaan vastaavalla tavalla Player.Prefs -avaimiin ```textSpeed``` (tallentaa dialogin tekstin vieritysnopeuden), ```ASDelay``` (tallentaa dialogin automaattisen siirtymisen seuraavaan riviin viiveen sekunteina) sekä ```name``` (tallentaa pelin alussa pelaajan asettaman nimen kirjoituskentästä).  
+
+### 4.2 Dialogi
+Narratiivi-tiimiltä tullut valmis dialogi ei sellaisenaan käy suoraan Yarniin, vaan siihen pitää lisätä komennot, tehosteet sekä kohtauksesta riippuen erilaiset muuttujat ja siirtymät Nodejen välillä. Kaikkiaan itseluomiani dialogin sisällä käytettäviä komentoja on yhteensä 12 kappaletta, ja ne vastaavat mm. puhujan nimen vaihtamisen nimilaatikkoon, hahmojen ilmeiden vaihtamisen, taustan vaihtamisen, kameran zoomauksen jne.  
+
+Yarnin sisäiset komennot toimivat seuraavalla tavalla: ```<<komento Objekti arvo>>```, jossa ```komento``` on skriptissä määritetty seuraavanlaisesti: 
+```csharp
+[YarnCommand("Komento")]
+public void Metodi(string arvo)
+{
+        // mitä komento tekeekään
+}
+```
+Komennossa ```Objekti```-kohta täsmentää, mistä Unityn GameObjectista YarnSpinner etsii skriptiä. Viimeisenä ```arvo``` on stringinä annettu muuttuja, joka välitetään skriptille.  
+
+Monimutkaisin komento on ehdottomasti kameraefekteistä vastaava ```<<effect Player #efekti>>```, joka yksinään vastaa 11 eri efektistä.
+Komento kokonaisuudessaan on tällainen: 
+```csharp
+[YarnCommand("effect")]
+public void CameraEffect(string effect)
+{
+   int _topbg = BackgroundHolder.transform.childCount - 1; 
+   var _background = BackgroundHolder.transform.GetChild(_topbg).GetComponent<RectTransform>();
+   var _fullscreen = FullScreenFade.GetComponent<RectTransform>();
+   // Pan camera left
+   if (effect == "pan_left")
+   {
+      LeanTween.moveX(_background, 575f, 1f);
+   }
+   // Pan camera rigth
+   else if (effect == "pan_right")
+   {
+      LeanTween.moveX(_background, 0, 1f);
+   }
+   // Zoom camera in
+   else if (effect == "zoom_in")
+   {
+      LeanTween.scale(_background, _background.localScale * 1.5f, 1f);
+   }
+   // Zoom out effect
+   else if (effect == "zoom_out")
+   {
+      LeanTween.scale(_background, _background.localScale / 1.5f, 1f);
+   }
+   // Short shake, only once
+   else if (effect == "shake_short")
+   {
+      LeanTween.moveX(_background, 50f, 0.5f).setEasePunch();          
+   }
+   // Long shake, multiple times
+   else if (effect == "shake_long")
+   {
+      LeanTween.moveX(_background, 70f, 0.6f).setEasePunch().setLoopPingPong(2);
+   }
+   // Turn background darker by halving RGBA-values
+   else if (effect == "darker")
+   {
+      LeanTween.color(_background, Color.gray, 2f);
+   }
+   // Turn background black by setting RGBA-values to zero
+   else if (effect == "fade_black")
+   {
+      LeanTween.color(_background, Color.black, 2f);
+   }
+   // Turn background normal
+   else if (effect == "unfade")
+   {
+      LeanTween.color(_background, Color.white, 2f);
+   }
+   // Fades full screen to black
+   else if (effect == "full_fade")
+   {
+       Image r = FullScreenFade.GetComponent<Image>();
+       LeanTween.value(FullScreenFade, 0, 1, 1).setOnUpdate((float val) =>
+       {
+          Color c = r.color;
+          c.a = val;
+          r.color = c;
+          });
+       }
+       // Unfades full screen
+       else if (effect == "full_unfade")
+       {
+          Image r = FullScreenFade.GetComponent<Image>();
+          LeanTween.value(FullScreenFade, 1, 0, 1).setOnUpdate((float val) =>
+          {
+             Color c = r.color;
+             c.a = val;
+             r.color = c;
+             });
+          }
+   }
+```
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
