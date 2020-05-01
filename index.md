@@ -285,6 +285,11 @@ if (Input.touchCount > 0)
 
 }
 ```
+__Kuvanvaihto yhdistettynä kameraefektiin tarinan visualisoimiseksi__  
+
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/d4bf59d92819cc35b1ff29e9017f43db.mp4" type="video/mp4" /></video>  
+
+Kyseinen efekti on saatu aikaan ketjuttamalla taas Yarn -komentoja. Tässä esimerkissä kuvanvaihto tapahtuu yhtä ruudunpäivitystä aikaisemmin kuin kuvan täräytys, tuloksena yksinkertainen mutta tehokas efekti.  
 
 
 ### Markdown
