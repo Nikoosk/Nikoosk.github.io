@@ -253,7 +253,7 @@ Valitettavasti pelin scopen kaventuessa, sekä ajan loppuessa taistelu, sekä in
 
 __Kosketuksen visuaalinen havainnollistaminen__  
 
-![Image from Gyazo](https://gyazo.com/16f8bc0c3c78b28c9354669dfb12b353)  
+![Image from Gyazo](https://i.gyazo.com/16f8bc0c3c78b28c9354669dfb12b353.png)  
 Tämä pieni läpinäkyvä pallo on aktiivinen ainoastaan kun peli tunnistaa puhelimen näytöltä kosketuksen, ja se seuraa kosketusta näytöllä. TouchIndicator.cs -skriptin ```Update()```-loopissa on metodi, joka tarkistaa, että tunnistaako puhelin kosketusta. Jos kosketus tunnistetaan, se laittaa indikaattoripallon aktiiviseksi ja siirtää sen sijainnin kosketuksen koordinaatteihin. Vastaavalla tavalla kosketuksen loppuessa indikaattoripallo deaktivoituu.  
 ```csharp
 // Check for touch
