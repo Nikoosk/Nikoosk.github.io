@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+# Ticorporate DemoLab - Kevät 2020
 
-You can use the [editor on GitHub](https://github.com/Nikoosk/Nikoosk.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## 1. Johdanto
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Tämän dokumentin tarkoitus on kuvata ja havainnollistaa kevään aikana oppimaani sekä tuottamaani sisältöä peliprojektiimme. Projekti kulkee nimellä [Nihonshoki Teien](http://nihonshokiteien.ticorporate.fi/). Projektissa kannoin vastuun koodista, sekä kaikesta mikä tapahtuu Unityn päässä. Tässä dokumentissa keskityn erityisen tarkasti toteutuksiin, jotka ovat olleet minulle täysin uusia, tai olen niistä erityisen tyytyväinen. DemoLabin aikana pääsin haistelemaan hieman UI-suunnittelua, mutta pääsääntöisesti olen tuottanut koodia, vastannut Unityn päässä työskentelystä, sekä opetellut käyttämään [YarnSpinner](https://yarnspinner.dev/) -työkalua osana tarinankerrontaa sekä pelilogiikkaa.
 
 ### Markdown
 
