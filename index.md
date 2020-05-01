@@ -38,6 +38,35 @@ Etenemisen tallentaminen tapahtuu Yarn-dialogin sisällä olevaa itsetehtyä kom
             PlayerPrefs.SetInt("DCP", int.Parse(_value));
         }
 ```
+Etenemisen automaattinen lataus on monimutkaisempi toteutus, jossa SaveLoad.cs -skriptin ```Awake()``` -metodissa haetaan pelin käynnistyessä Player.Prefseistä "DCP"-avain (DCP = **D**ialogue**C**om**P**leted) ja sen arvoa verrataan ennaltamäärittettyihin dialogi Nodeihin:
+```csharp
+        void Awake()
+        {
+            if (PlayerPrefs.HasKey("DCP"))
+            {
+                Debug.Log("Found saved dialogue with id: " + PlayerPrefs.GetInt("DCP"));
+                SavedID = PlayerPrefs.GetInt("DCP");
+
+                switch (SavedID)
+                {
+                    case 1:
+                        VariableLoader.StartNode = "Start";
+                        break;
+                    case 2:
+                        VariableLoader.StartNode = "Tenko";
+                        break;
+                    case 3:
+
+                        break;
+                }
+                DialogueRunner.GetComponent<DialogueRunner>().startNode = VariableLoader.StartNode;
+                Debug.Log("Node name: " + VariableLoader.StartNode);
+                
+
+            }
+        }
+```
+Pelin asetukset sekä pelaajan nimi tallennetaan vastaavalla tavalla Player.Prefs -avaimiin ```textSpeed``` (tallentaa dialogin tekstin vieritysnopeuden), ```ASDelay``` (tallentaa dialogin automaattisen siirtymisen seuraavaan riviin viiveen sekunteina) sekä ```name``` (tallentaa pelin alussa pelaajan asettaman nimen kirjoituskentästä). 
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
