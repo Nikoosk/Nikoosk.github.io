@@ -22,6 +22,7 @@ Yksinkertaisuudessaan halusin oppia pelien toiminnasta sekä niiden tekemisestä
 
 ## 3. Oppiminen
 Projektin alussa minulla oli paha tapa kommentoida koodia huonosti tai ei lainkaan. Ajattelin, kun kerta olen ainoa joka tämän koodin kanssa työskentelee, kommentointi olisi turhaa sillä kyllähän minä omaa koodiani ymmärrän. Olin väärässä, ja koodin kommentointi on erittäin tärkeää ja helpottaa myöhemmin projektin aikana vanhojen toiminnallisuuksien parantamista/korjaamista. Ja onhan se myös hyvä käytäntö.  
+Projektin aikana fiilis siitä, että haluaisin tehdä pelejä jatkossa ammatikseni ja oppia uutta kehittäjänä ovat vahvistuneet. Itselle uuden ominaisuuden ja toiminnallisuuden löytäminen täyttää mieleni ideoilla, miten voisin hyödyntää tätä pelissä ja millaisia mekaanikoita voisin luoda niillä.  
 ### 3.1 Oivallukset
 Projektin lopun häämötellessä tajusin, että toiminnallisuutta olisi voinut hajauttaa useampaan skriptiin ns bloatin välttämiseksi. Projektissa on useita skriptejä, joiden pituus on reippaasti yli 300 riviä. Ongelmakohtien löytäminen vaikeutuu skriptien pidetessä ja yhden virheen seuraukset ovat suurempia pitkässä "spagettikoodissa" kuin täsmätoimintaskriptissä.  
 
@@ -301,35 +302,18 @@ __Kuvanvaihto yhdistettynä kameraefektiin tarinan visualisoimiseksi__
 
 Kyseinen efekti on saatu aikaan ketjuttamalla taas Yarn -komentoja. Tässä esimerkissä kuvanvaihto tapahtuu yhtä ruudunpäivitystä aikaisemmin kuin kuvan täräytys, tuloksena yksinkertainen mutta tehokas efekti.  
 
+## 5. Tulevaisuus  
 
-### Markdown
+Pyrin kehittymään koodajana ja pelikehittäjänä jatkossakin, suunnitelmissa olisi toteuttaa kesän aikana oma peliprojekti itsenäisesti hyödyntäen DemoLabin aikana oppimiani taitoja. Mitään valmista ideaa ei vielä ole, mutta mielessäni on nippu mielenkiintoisia mekaniikoita joita haluan hyödyntää ja kokeilla, vaikka edes TechDemon muodossa. Unelmana on tehdä peli, jonka jokainen ominaisuus ja mekaniikka ovat minulle ylpeydenaihe, ja josta mielellään myös muut ihmiset olisivat innoissaan.  
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Projektista jäi käteen pelikehityksestä varsin hajanainen osaamisalue. Projektin aikana ei tarvinnut tehdä perinteisiä peliin liittyviä toiminnallisuuksia, kuten hahmon tai kameran liikkumista, vuorovaikutusta pelimaailman ja objektien kanssa, tai itse pelikentän suunnittelua. Osaamista kertyi vahvasti narratiivin linkittämisestä osaksi pelin kulkua, dialogien lisääminen YarnSpinnerillä, valikoiden ja asetusten tekeminen ja suunnittelu, sekä kanvaksien toiminta ja manipulointi skripteistä.  
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Ota yhteyttä  
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Nikoosk/Nikoosk.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+L4234@student.jamk.fi  
+[Instagram](https://www.instagram.com/nikoosk/)  
+[Twitter](https://twitter.com/TheNikoosk)  
+[Steam](https://steamcommunity.com/id/nikoosk/)  
+Discord: Nikoosk#1904  
