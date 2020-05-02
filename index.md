@@ -305,6 +305,13 @@ __Kuvanvaihto yhdistettynä kameraefektiin tarinan visualisoimiseksi__
 
 Kyseinen efekti on saatu aikaan ketjuttamalla taas Yarn -komentoja. Tässä esimerkissä kuvanvaihto tapahtuu yhtä ruudunpäivitystä aikaisemmin kuin kuvan täräytys, tuloksena yksinkertainen mutta tehokas efekti.  
 
+__Kette__  
+
+![Kette](https://Nikoosk.github.io/phTenko_Scene1_smile.png)  
+Kette oli alunperin vain placeholderiksi tarkoitettu nopea piirros, mutta kehkeytyi meemiksi, projektimme maskotiksi sekä lopulta tyyliteltynä versiona t-paitaan kuvastamaan projektiamme. Kette on myös ansainnut maailmanlaajuista tunnustusta.  
+![Image from Gyazo](https://i.gyazo.com/fc935024c0e980fe1bba650025a4a6e7.png)  
+
+
 ## 5. Tulevaisuus  
 
 Pyrin kehittymään koodajana ja pelikehittäjänä jatkossakin, suunnitelmissa olisi toteuttaa kesän aikana oma peliprojekti itsenäisesti hyödyntäen DemoLabin aikana oppimiani taitoja. Mitään valmista ideaa ei vielä ole, mutta mielessäni on nippu mielenkiintoisia mekaniikoita joita haluan hyödyntää ja kokeilla, vaikka edes TechDemon muodossa. Unelmana on tehdä peli, jonka jokainen ominaisuus ja mekaniikka ovat minulle ylpeydenaihe, ja josta mielellään myös muut ihmiset olisivat innoissaan.  
