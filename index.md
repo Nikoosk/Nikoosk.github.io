@@ -6,6 +6,16 @@ Tämän dokumentin tarkoitus on kuvata ja havainnollistaa kevään aikana oppima
 
 Kurssin alussa osaamiseni koskien Unityä sekä koodaamista olivat todella rajalliset. Unityn kanssa aikasemmat kokemukset olivat lähinnä netistä löytyvien ohjeiden seuraamista sekä valmiiden palasten käyttämistä. Projektin alussa totesin että dialogin näyttäminen pelissä onkin suurempi haaste, mitä osasin aavistaa. Edellä mainittu YarnSpinner on ollut korvaamaton apu Unity-integraatiollaan sekä helppokäyttöisellä web-editorillaan. ![Kuva editorista](https://Nikoosk.github.io/yarnEditor.png)  
 
+### Päätyön osuus  
+
+Päätyönä tein kurssin aikana pelitekniikkaa, eli vastasin koodista ja Unitystä. Tätä portfoliota kasatessa olen käyttänyt **400** tuntia yhteensä kurssin aikana työskentelyyn, joista ehdottomasti suurin osa on mennyt koodaamiseen ja muun tiimin tekemien tuotoksien integroimiseen osaksi projektiamme. Omaa koodia olen tuottanut yhteensä noin **2200** riviä, joista suuri osa (**n. 470**) on yksinään *YarnCommands.cs*-skriptissä. *YarnCommands.cs* sisältää kaikki custom-komennot joita peli käyttää dialogin aikana, ja erilaisia komentoja on yhteensä toteutettu 11 kappaletta.  
+
+### Sivutyö  
+
+Sivutyönä oli alunperin testaaminen, mutta projektin ainoana pelitekniikka -ihmisenä työmäärä päätyön parissa oli niin valtaisa, että aikaa sivutyölle ei vain löytynyt.  
+
+
+
 ## 2. Oppimistavoitteet 
 
 Yksinkertaisuudessaan halusin oppia pelien toiminnasta sekä niiden tekemisestä. pääsääntöisesti koodin puolelta. Tavoitteenani oli oppia tuottamaan toimivia ominaisuuksia, jotka tarvittaessa ovat skaalautuvia sekä uudelleenkäytettävissä. Ehdottomasti tärkein tavoite oli päästä irti kovakoodaamisesta, sekä tuottaa selkeää ja suht helposti ymmärrettävää koodia.   
