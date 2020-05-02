@@ -22,6 +22,8 @@ Yksinkertaisuudessaan halusin oppia pelien toiminnasta sekä niiden tekemisestä
 
 ## 3. Oppiminen
 Projektin alussa minulla oli paha tapa kommentoida koodia huonosti tai ei lainkaan. Ajattelin, kun kerta olen ainoa joka tämän koodin kanssa työskentelee, kommentointi olisi turhaa sillä kyllähän minä omaa koodiani ymmärrän. Olin väärässä, ja koodin kommentointi on erittäin tärkeää ja helpottaa myöhemmin projektin aikana vanhojen toiminnallisuuksien parantamista/korjaamista. Ja onhan se myös hyvä käytäntö.  
+Tavoitteiden ulkopuolelta olen oppinut pyytämään apua ongelmatilanteissa, sekä toimimaan osana tiivistä ryhmää, jossa jokaisella on tietty vastuualue ja projektin eteneminen on kiinni kaikkien panostuksesta.Etätyöskentelyyn asennoituminen oli aluksi hankalaa, mutta jahka sai muodostettua rutiinin arkeen, alkoi työntekeminen rullata. Huomasin olevani kotona työskennellessä huomattavasti tehokkaampi, ja jopa tupakointi vähentyi kun ketään ei tullut puolen tunnin välein toimiston ovelle kysymään tupakkaseuraksi.  
+
 Projektin aikana fiilis siitä, että haluaisin tehdä pelejä jatkossa ammatikseni ja oppia uutta kehittäjänä ovat vahvistuneet. Itselle uuden ominaisuuden ja toiminnallisuuden löytäminen täyttää mieleni ideoilla, miten voisin hyödyntää tätä pelissä ja millaisia mekaanikoita voisin luoda niillä.  
 ### 3.1 Oivallukset
 Projektin lopun häämötellessä tajusin, että toiminnallisuutta olisi voinut hajauttaa useampaan skriptiin ns bloatin välttämiseksi. Projektissa on useita skriptejä, joiden pituus on reippaasti yli 300 riviä. Ongelmakohtien löytäminen vaikeutuu skriptien pidetessä ja yhden virheen seuraukset ovat suurempia pitkässä "spagettikoodissa" kuin täsmätoimintaskriptissä.  
