@@ -178,17 +178,17 @@ public void CameraEffect(string effect)
           r.color = c;
           });
        }
-       // Unfades full screen
-       else if (effect == "full_unfade")
+    // Unfades full screen
+    else if (effect == "full_unfade")
+    {
+       Image r = FullScreenFade.GetComponent<Image>();
+       LeanTween.value(FullScreenFade, 1, 0, 1).setOnUpdate((float val) =>
        {
-          Image r = FullScreenFade.GetComponent<Image>();
-          LeanTween.value(FullScreenFade, 1, 0, 1).setOnUpdate((float val) =>
-          {
-             Color c = r.color;
-             c.a = val;
-             r.color = c;
-             });
-          }
+          Color c = r.color;
+          c.a = val;
+          r.color = c;
+          });
+       }
    }
 ```
 ### 4.4 Onnenpyörä
