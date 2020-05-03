@@ -302,8 +302,58 @@ if (Input.touchCount > 0)
 __Kuvanvaihto yhdistettynä kameraefektiin tarinan visualisoimiseksi__  
 
 <video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/d4bf59d92819cc35b1ff29e9017f43db.mp4" type="video/mp4" /></video>  
+```
+<<bgchange Player bg3>>
+<<effect Player shake_short>>
+```  
 
-Kyseinen efekti on saatu aikaan ketjuttamalla taas Yarn -komentoja. Tässä esimerkissä kuvanvaihto tapahtuu yhtä ruudunpäivitystä aikaisemmin kuin kuvan täräytys, tuloksena yksinkertainen mutta tehokas efekti.  
+
+Kyseinen efekti on saatu aikaan ketjuttamalla taas Yarn -komentoja ```<<bgchance Player bg3>>``` vaihtaa kuvan ja heti perään ```<<effect Player shake_short>>``` täräyttää juuri vaihdettua kuvaa.  
+
+__Tekstin nopeus ja automaattisen vierityksen asetukset__  
+
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/580c6f5691f8bcd98d1904a81724f85b.mp4" type="video/mp4" /></video>  
+
+Tekstin nopeutta sekä automaattisen vierityksen viivettä voidaan säätää joko dialogin aikana asetusikkunasta, jonka saa auki PC -buildissa painamalla _Escape_-näppäintä ja Androidilla _Takaisin_-painikkeella, tai pelin käynnistäessä päävalikon asetuksista. Käyttäjän valitsemat asetukset tallentuvat Player.Prefseihin ja latautuvat sieltä automaattisesti pelin käynnistyessä.  
+
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/1ed89c2e712b30c65ec6073a0f37dfa0.mp4" type="video/mp4" /></video>  
+
+__Puhujan nimen vaihto tekstikenttään dialogissa__  
+
+<video alt="Video from Gyazo" muted playsinline controls><source src="https://i.gyazo.com/7bb24c62fbc4ddc9811b4378f3534a5b.mp4" type="video/mp4" /></video>  
+
+Pelin alussa pelaajan asetettava hahmolleen nimi, joka näkyy hahmon puhuessa, sekä pelin hahmojen puhutellessa pelaajaa. Dialogikentän yläpuolella on pieni tekstikenttä, joka kuvastaa puhujaa. Pelihahmon ajatellessa, kenttä on tyhjä. Nimen vaihtaminen tapahtuu Yarnin dialogin sisältä itsetehdyllä komennolla ```<<speaking Player #nimi>>```.  
+
+```csharp
+[YarnCommand("speaking")]
+public void SetSpeaker(string name)
+{
+
+   if(name == "MC")
+   {
+      name = PlayerPrefs.GetString("name");
+      Debug.Log("Speaker name set to " + name);
+      SpeakerName.text = name;
+   }
+   else if(name == "Boss")
+   {
+      SpeakerName.text = "Mr. Ashiya";
+      Debug.Log("Speaker name set to " + SpeakerName.text);
+   }
+   else if (name == "clear")
+   {
+      SpeakerName.text = null;
+   }
+   else
+   {
+      SpeakerName.text = name;
+      Debug.Log("Speaker name set to " + name);
+   }
+}
+```  
+Komentoa luodessa piti ottaa kaksi poikkeusta huomioon. Pelaajan nimi ei ole ennaltamääritelty, joten dialogin keskeltä sitä kutsutaan arvolla __MC__. Pelaajan nimi haetaan Player.Prefseistä, mihin se on tallennettu pelaajan asettaessa nimensä. Tarinan päähahmon pomon nimi piti myös tehdä erityistapauksena, sillä Yarn yritti palauttaa välilyönnillä erotetun nimen string-taulukkona. Pomoa kutsutaan dialogista arvolla __Boss__.  
+Viimeinen poikkeus on arvo __clear__, jolla tyhjennetään nimikenttä narratiivin kerrontaa varten.  
+
 
 __Kette__  
 
