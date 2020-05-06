@@ -267,8 +267,9 @@ Valitettavasti pelin scopen kaventuessa, sekä ajan loppuessa taistelu, sekä in
 
 __Kosketuksen visuaalinen havainnollistaminen__  
 
-![Image from Gyazo](https://i.gyazo.com/16f8bc0c3c78b28c9354669dfb12b353.png)  
-Tämä pieni läpinäkyvä pallo on aktiivinen ainoastaan kun peli tunnistaa puhelimen näytöltä kosketuksen, ja se seuraa kosketusta näytöllä. TouchIndicator.cs -skriptin ```Update()```-loopissa on metodi, joka tarkistaa, että tunnistaako puhelin kosketusta. Jos kosketus tunnistetaan, se laittaa indikaattoripallon aktiiviseksi ja siirtää sen sijainnin kosketuksen koordinaatteihin. Vastaavalla tavalla kosketuksen loppuessa indikaattoripallo deaktivoituu.  
+<video alt="Video from Gyazo" muted loop playsinline controls><source src="https://i.gyazo.com/d22628966e91d5681b4f0da26035577e.mp4" type="video/mp4" /></video>  
+
+Tämä pieni läpinäkyvä pallo on näkyvä ainoastaan kun peli tunnistaa puhelimen näytöltä kosketuksen, ja se seuraa kosketusta näytöllä. TouchIndicator.cs -skriptin ```Update()```-loopissa on metodi, joka tarkistaa, että tunnistaako puhelin kosketusta. Jos kosketus tunnistetaan, se laittaa indikaattoripallon alphan yhteen ja siirtää sen sijainnin kosketuksen koordinaatteihin. Vastaavalla tavalla kosketuksen loppuessa indikaattoripallon alpha feidataan nollaan.  
 ```csharp
 // Check for touch
 if (Input.touchCount > 0)
@@ -286,7 +287,7 @@ if (Input.touchCount > 0)
    // Set touch indicator active when detecting touch input
    if (touch.phase == TouchPhase.Began)
    {
-      touchIndicator.SetActive(true);
+      LeanTween.alpha(touchIndicator.GetComponent<RectTransform>(), 1, 0.2f);
       position.y = TouchPos.y;
       position.x = TouchPos.x;
       touchIndicator.transform.position = position;
@@ -294,7 +295,7 @@ if (Input.touchCount > 0)
    // Deactive touch indicator when touch has ended
    if (touch.phase == TouchPhase.Ended)
    {
-      touchIndicator.SetActive(false);
+      LeanTween.alpha(touchIndicator.GetComponent<RectTransform>(), 0, 0.2f);
    }
 
 }
