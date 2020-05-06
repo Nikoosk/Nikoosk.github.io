@@ -354,6 +354,26 @@ public void SetSpeaker(string name)
 Komentoa luodessa piti ottaa kaksi poikkeusta huomioon. Pelaajan nimi ei ole ennaltamääritelty, joten dialogin keskeltä sitä kutsutaan arvolla __MC__. Pelaajan nimi haetaan Player.Prefseistä, mihin se on tallennettu pelaajan asettaessa nimensä. Tarinan päähahmon pomon nimi piti myös tehdä erityistapauksena, sillä Yarn yritti palauttaa välilyönnillä erotetun nimen string-taulukkona. Pomoa kutsutaan dialogista arvolla __Boss__.  
 Viimeinen poikkeus on arvo __clear__, jolla tyhjennetään nimikenttä narratiivin kerrontaa varten.  
 
+__Overworld Map__  
+
+<video alt="Video from Gyazo" muted  playsinline controls><source src="https://i.gyazo.com/7f63e9f43db5c41f0f2f4ae6803f4206.mp4" type="video/mp4" /></video>  
+Kartta koostuu on neljästä napista, ja taustasta. Nappien highlight on toteutettu OnPointerEventeillä, ja nappien animaatio LeanTweenillä. Nappien korostamisen koodi on yksinkertaisuudessaan tässä:  
+```csharp
+ public void OnPointerEnter (PointerEventData eventData)
+    {
+        mouser_over = true;
+        Debug.Log("Mouse over");
+        LeanTween.scale(gameObject, scale, 0.2f);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        mouser_over = false;
+        Debug.Log("Mouse exit");
+        LeanTween.scale(gameObject, downscale, 0.2f);
+    }
+```  
+
 
 __Kette__  
 
