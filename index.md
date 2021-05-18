@@ -1,3 +1,46 @@
+# Portfolio - Kevät 2021
+
+## Finnish Game Jam
+
+Teimme viikonlopun aikana yksinkertaisen ylhäältä kuvatun pelin, missä ohjataan pelastushelikopteria ja etsitään veden varaan jääneitä matkustajia. Projekti sai nimen [The Lost Passengers](https://globalgamejam.org/2021/games/lost-passengers-5 "Global Game Jam- sivut pelille"). Projektissa vastasin asetusten, valikkojen sekä UI-toiminnallisuudesta. Lisäksi koodasin hakuvalon kontrollit. [YouTubessa](https://www.youtube.com/watch?v=esIWLz435Wo "Lyhyt video pelistä") löytyy lyhyt video pelistä ja sen toiminnallisuudesta.
+
+Projektin lähdekoodi löytyy [Eetu Ihalaisen](https://www.linkedin.com/in/eetu-ihalainen/ "Eetun LinkedIn") [GitHub- reposta](https://github.com/Eetui/FGJ2021 "Projektin repo").
+
+
+### Spottivalon koodi
+
+Spottivaloa voi ohjata sekä hiirellä että ohjaimella. Hiiren liike on muutettu X- ja Y-akseleilla spottivalon rotaatioksi. Ohjaimella sama on toteutettu oikean analogin vertikaalisilla ja horisontaalisilla akseleilla. 
+
+```csharp
+    void Update()
+    {
+        
+        rotation_X += -Input.GetAxis("CameraVertical") * RotationSpeed * Time.deltaTime;
+        rotation_y += Input.GetAxis("CameraHorizontal") * RotationSpeed * Time.deltaTime;
+        rotation_X += -Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
+        rotation_y += Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
+        rotation_X = Mathf.Clamp(rotation_X, minRotation_x, maxRotation_x);
+        transform.localEulerAngles = new Vector3(rotation_X, rotation_y, transform.localEulerAngles.z);
+
+        transform.position = Kopteri.transform.position;
+        
+        
+
+    }
+```
+
+Jälkikäteen katsottuna ratkaisu on kankea ja välillä epäintuitiivinen. Jatkossa tekisin vastaavan toiminnallisuuden käyttämällä hiiren kursorin sijaintia.
+
+Muu tiimi:
+
+Koodaus - [Eetu Ihalainen](https://www.linkedin.com/in/eetu-ihalainen/)
+
+Grafiikka ja 3D- mallinnus - [Mikael Salmela](https://www.linkedin.com/in/mikael-salmela-512b4a194/)
+
+Musiikki ja äänet - [Laura Lindeman](https://www.linkedin.com/in/laura-lindeman-9798581a1/)
+
+
+
 # Ticorporate DemoLab - Kevät 2020
 
 ## 1. Johdanto
@@ -376,12 +419,6 @@ Kartta koostuu on neljästä napista, ja taustasta. Nappien highlight on toteute
 ```  
 
 
-__Kette__  
-
-![Kette](https://Nikoosk.github.io/phTenko_Scene1_smile.png)  
-Kette oli alunperin vain placeholderiksi tarkoitettu nopea piirros, mutta kehkeytyi meemiksi, projektimme maskotiksi sekä lopulta tyyliteltynä versiona t-paitaan kuvastamaan projektiamme. Kette on myös ansainnut maailmanlaajuista tunnustusta.  
-![Image from Gyazo](https://i.gyazo.com/fc935024c0e980fe1bba650025a4a6e7.png)  
-
 
 ## 5. Tulevaisuus  
 
@@ -395,6 +432,6 @@ Projektista jäi käteen pelikehityksestä varsin hajanainen osaamisalue. Projek
 
 L4234@student.jamk.fi  
 [Instagram](https://www.instagram.com/nikoosk/)  
-[Twitter](https://twitter.com/TheNikoosk)  
+[Twitter](https://twitter.com/Nikoosk)  
 [Steam](https://steamcommunity.com/id/nikoosk/)  
 Discord: Nikoosk#1904  
