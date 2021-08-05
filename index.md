@@ -1,4 +1,42 @@
-# Portfolio - Kevät 2021
+# Portfolio - Kesä 2021
+
+## StraightUpGameJam #1
+
+Olin mukana projektissa koodaajana, mutta teknisten murheiden takia osallistuminen jäi vähäiselle. Projekti löytyy AhkuDevin itch.iosta, nimellä [WIR-E](https://ahkudev.itch.io/wir-e "Itch.io- linkki pelin sivuille"). Lyhyen osuuteni aikana tein kaksi eri hahmokontrollia, perinteisen tankkikontrollin sekä modernimman kamerakulmaan sidotun malliu. Mikäli teknisiä murheita ei olisi ollut, olisin yrittänyt linkittää hahmon kääntymisen liikkumissuunnan mukaiseksi. Jätimme lopulta peliin ainoastaan modernimman liikkumisen. 
+```csharp
+public class Movement : MonoBehaviour
+{
+    [SerializeField] GameObject player;
+    public float speed = 5.0f;
+    public float rotationSpeed = 20f;
+    public float jumpSpeed = 10.0f;
+    public float gravity = 20.0f;
+    private Vector3 moveDirection;
+    public CameraRotate cameraRotate;
+
+    void Update()
+    {
+        CharacterController controller = player.GetComponent<CharacterController>();
+        if (controller.isGrounded)
+        {
+            if (cameraRotate.camIndex == 0) { moveDirection = new Vector3(-Input.GetAxis("Horizontal"), 0, -Input.GetAxis("Vertical")); }
+            else if (cameraRotate.camIndex == 1) { moveDirection = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")); }
+            else if (cameraRotate.camIndex == 2) { moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); }
+            else if (cameraRotate.camIndex == 3) { moveDirection = new Vector3(-Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal")); }
+
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+
+            if (Input.GetButton("Jump")) { moveDirection.y = jumpSpeed; }
+        }
+
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+    }
+}
+
+```
+# Kevät 2021
 
 ## Finnish Game Jam
 
